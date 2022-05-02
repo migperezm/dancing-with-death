@@ -3,17 +3,16 @@
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
 export default {
-  data() {
-    let hoursArray = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+  data() {    
     let nowDate = new Date().toISOString().slice(0, 10);
-
+    
     return {
       arrayAppointments: [],
       date: nowDate,
       email: "",
       errors: [],
       horasTomadas: [],
-      hoursArray,
+      hoursArray: [],
       nowDate,
       today: new Date().toISOString().slice(0, 10),
       disableDates: [
@@ -28,10 +27,17 @@ export default {
     };
   },
   methods: {
+    resetHours() {
+      let h = new Date().getHours();
+      this.hoursArray = [];
+      for (var i = h + 1; i <= 18; i++) {
+        this.hoursArray.push(i);
+      }
+    },
     getAppointments(date) {
       let me = this;
       let url = `/appointment?id=${date}`;
-      me.hoursArray = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
+      me.resetHours();
       me.horasTomadas = [];
       axios
         .get(url)
@@ -125,7 +131,7 @@ export default {
 </script>
 
 <template>
-  <div class="container col-lg-6 offset-lg-3">    
+  <div class="container col-lg-6 offset-lg-3">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 offset-lg-4">
