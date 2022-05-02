@@ -12,11 +12,13 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 // Import Bootstrap and BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import Vuetify from 'vuetify';
 
 import Vue from "vue";
 import VueSimpleAlert from "vue-simple-alert";
 
 Vue.use(VueSimpleAlert);
+Vue.use(Vuetify); 
 
 /**
  * The following block of code may be used to automatically register your
@@ -29,7 +31,9 @@ Vue.use(VueSimpleAlert);
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('main-component', require('./components/Main.vue').default);
+Vue.component('banner-component', require('./components/BannerComponent.vue').default);
+Vue.component('footer-component', require('./components/FooterComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -39,4 +43,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    vuetify: new Vuetify(),
 });

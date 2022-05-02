@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment as Appointment;
 use App\Models\Dancer;
-use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -53,22 +52,22 @@ class AppointmentController extends Controller
         return $Appointment;
     }
 
-    public function update(Request $request)
-    {
-        $email = $request->email;
-        $Appointment = Appointment::findOrFail($request->id);
+    // public function update(Request $request)
+    // {
+    //     $email = $request->email;
+    //     $Appointment = Appointment::findOrFail($request->id);
 
-        $Appointment->appointment_date = $request->appointment_date;
-        $Appointment->dancer_id = $request->dancer_id;
+    //     $Appointment->appointment_date = $request->appointment_date;
+    //     $Appointment->dancer_id = $request->dancer_id;
 
-        $Appointment->update();
+    //     $Appointment->update();
 
-        return $Appointment;
-    }
+    //     return $Appointment;
+    // }
 
-    public function destroy(Request $request)
-    {
-        $Appointment = Appointment::destroy($request->id);
-        return $Appointment;
-    }
+    // public function destroy(Request $request)
+    // {
+    //     $Appointment = Appointment::destroy($request->id);
+    //     return $Appointment;
+    // }
 }
