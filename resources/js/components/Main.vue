@@ -4,7 +4,7 @@ import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
 export default {
   data() {
-    let hoursArray = [18, 19, 20, 21, 22, 23, 0];
+    let hoursArray = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
     let nowDate = new Date().toISOString().slice(0, 10);
 
     return {
@@ -31,7 +31,7 @@ export default {
     getAppointments(date) {
       let me = this;
       let url = `/appointment?id=${date}`;
-      me.hoursArray = [18, 19, 20, 21, 22, 23, 0];
+      me.hoursArray = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
       me.horasTomadas = [];
       axios
         .get(url)
