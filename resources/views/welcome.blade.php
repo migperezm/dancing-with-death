@@ -7,7 +7,7 @@
         <title>Laravel</title>        
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-<link href="{{ asset('css/app.css') }}" rel="stylesheet"></link>
+        <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet"></link>
     </head>
     <body class="antialiased">
         {{-- <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
@@ -29,6 +29,6 @@
         <div id="app" class="content"><!--La equita id debe ser app, como hemos visto en app.js-->
             <example-component></example-component><!--Añadimos nuestro componente vuejs-->
         </div>
-        <script src="{{asset('js/app.js')}}"></script>        
+        <script src="{{secure_asset('js/app.js')}}"></script>        
     </body>
 </html>
