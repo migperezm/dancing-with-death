@@ -12,24 +12,17 @@
     </link>
 </head>
 
-<body class="antialiased">
+<body>
 
+    <div id="app">
 
-
-    <div id="app" class="content">
         <header>
             <banner-component></banner-component>
         </header>
 
         <main-component></main-component>
 
-        <footer>
-            <footer-component></footer-component>
-        </footer>
-
     </div>
-
-
     <script src="{{ secure_asset('js/app.js') }}"></script>
 </body>
 

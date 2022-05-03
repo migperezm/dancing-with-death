@@ -20,13 +20,11 @@ export default {
 };
 </script>
 <template>
-  <v-footer padless>
+  <v-footer app bottom fixed padless>
     <v-card class="flex" flat tile>
       <v-card-title class="teal">
         <strong class="subheading">Contáctame</strong>
-
         <v-spacer></v-spacer>
-
         <v-btn
           v-for="icon in icons"
           :key="icon.icon"
@@ -40,7 +38,6 @@ export default {
           </v-icon>
         </v-btn>
       </v-card-title>
-
       <v-card-text class="py-2 white--text text-center">
         {{ new Date().getFullYear() }} — <strong>Miguel Pérez Monsalve</strong>
       </v-card-text>

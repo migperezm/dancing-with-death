@@ -2,10 +2,11 @@
 <script>
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
+import FooterComponent from "./FooterComponent.vue";
 export default {
-  data() {    
+  data() {
     let nowDate = new Date().toISOString().slice(0, 10);
-    
+
     return {
       arrayAppointments: [],
       date: nowDate,
@@ -14,6 +15,7 @@ export default {
       horasTomadas: [],
       hoursArray: [],
       nowDate,
+
       today: new Date().toISOString().slice(0, 10),
       disableDates: [
         { end: new Date(Date.now() - 8640000) },
@@ -26,6 +28,7 @@ export default {
       },
     };
   },
+  components: { FooterComponent },
   methods: {
     resetHours() {
       let h = new Date().getHours();
@@ -48,6 +51,7 @@ export default {
           me.hoursArray = me.hoursArray.filter(function (val) {
             return me.horasTomadas.indexOf(val.toString()) == -1;
           });
+          console.log(me.hoursArray);
         })
         .catch(function (error) {
           console.log(error);
@@ -173,23 +177,29 @@ export default {
     <br />
     <hr />
     <h2 class="mx-auto">
-      <strong>
-        <p class="text-sm-center" v-if="date">
-          😈 Calendar for {{ nowDate }} 😈
-        </p>
-      </strong>
-      <ul style="list-style: none">
-        <li v-for="hora in hoursArray" :key="hora">
-          <div
-            :id="`${date}|${hora}`"
-            :key="hora"
-            @click="createAppointment(`${date}|${hora}`)"
-            class="alert alert-success text-sm-center"
-          >
-            {{ hora + ":00" }}
-          </div>
-        </li>
-      </ul>
+      <div v-if="hoursArray.length > 0">
+        <strong>
+          <p class="text-sm-center" v-if="date">
+            😈 Calendar for {{ nowDate }} 😈
+          </p>
+        </strong>
+        <ul style="list-style: none">
+          <li v-for="hora in hoursArray" :key="hora">
+            <div
+              :id="`${date}|${hora}`"
+              :key="hora"
+              @click="createAppointment(`${date}|${hora}`)"
+              class="alert alert-success text-sm-center"
+            >
+              {{ hora + ":00" }}
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div v-else class="alert alert-danger text-sm-center">
+        There's not more appointments availables for this date {{ nowDate }} 
+      </div>
     </h2>
+    <footer-component></footer-component>
   </div>
 </template>

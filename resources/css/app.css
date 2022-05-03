@@ -1,3 +1,18 @@
 li:nth-child(6) {
-    list-style: none;
-  }
+  list-style: none;
+}
+
+html, body {
+  height: 100%;
+  background-color: red;
+  position: relative;
+}
+
+footer {
+  position: static;
+  left: 0;
+  bottom: 0;
+  height: 10%;
+  width: 100%;
+  background-color: green;
+}
