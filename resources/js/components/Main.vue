@@ -30,15 +30,11 @@ export default {
     },
     components: { FooterComponent, BannerComponent },
     methods: {
-        resetHours() {
+        resetHours() {         
             this.hoursArray = [];
-            let h;
-            let hoy = new Date().toISOString().slice(0, 10);
-            if (
-                this.date === hoy ||
-                this.date.toISOString().slice(0, 10) === hoy
-            ) {
-                let h = new Date().getHours();
+            let hoy = new Date().toISOString().slice(0, 10);            
+            if(this.date === hoy || this.date.toISOString().slice(0, 10) === hoy){      
+                let h = new Date().getHours();      
                 for (var i = h + 1; i <= 18; i++) {
                     this.hoursArray.push(i);
                 }
