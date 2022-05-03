@@ -1,12 +1,11 @@
 <script>
-export default {
-  
-}
+export default {};
 </script>
-<template>
-  <v-banner single-line top fixed>
-    <v-icon slot="icon"  size="36">
-      mdi-emoticon-devil 
-    </v-icon>    
-  </v-banner>  
+<template>  
+  <div id="app">    
+      <v-app-bar app dense fixed hide-on-scroll>
+        <v-toolbar-title>Dance with the Death!</v-toolbar-title>             
+      </v-app-bar>      
+      <v-spacer></v-spacer>
+  </div>
 </template>

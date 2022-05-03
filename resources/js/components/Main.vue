@@ -3,6 +3,7 @@
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
 import FooterComponent from "./FooterComponent.vue";
+import BannerComponent from './BannerComponent.vue'
 export default {
   data() {
     let nowDate = new Date().toISOString().slice(0, 10);
@@ -28,7 +29,7 @@ export default {
       },
     };
   },
-  components: { FooterComponent },
+  components: { FooterComponent, BannerComponent },
   methods: {
     resetHours() {
       let h = new Date().getHours();
@@ -50,8 +51,7 @@ export default {
           });
           me.hoursArray = me.hoursArray.filter(function (val) {
             return me.horasTomadas.indexOf(val.toString()) == -1;
-          });
-          console.log(me.hoursArray);
+          });          
         })
         .catch(function (error) {
           console.log(error);
@@ -135,8 +135,9 @@ export default {
 </script>
 
 <template>
-  <div class="container col-lg-6 offset-lg-3">
+  <div class="container col-lg-6 offset-lg-3 mt-4">
     <div class="container">
+      <banner-component></banner-component>
       <div class="row">
         <div class="col-lg-4 offset-lg-4">
           <div class="row justify-content-center">
