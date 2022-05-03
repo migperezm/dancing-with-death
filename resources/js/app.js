@@ -18,7 +18,7 @@ import Vue from "vue";
 import VueSimpleAlert from "vue-simple-alert";
 
 Vue.use(VueSimpleAlert);
-Vue.use(Vuetify); 
+Vue.use(Vuetify);
 
 /**
  * The following block of code may be used to automatically register your
